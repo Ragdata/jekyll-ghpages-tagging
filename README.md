@@ -44,10 +44,9 @@ This project provides a fully-automated solution for Jekyll tag management that 
 
 ### Inputs
 
-		github_token:
+		token:
 			description: "GitHub access token with 'repo' scope"
 			required: false
-			default: ${{ github.token }}
 		posts_dir:
 			description: "Path to '_posts' directory from root"
 			required: true
@@ -73,7 +72,7 @@ This project provides a fully-automated solution for Jekyll tag management that 
 
 		uses: actions/jekyll-ghpages-tagging@v1
 		with:
-			github_token: ${{ github.token }}
+			github_token: ${{ secrets.token }}
 			posts_dir: ${{ input.posts_dir }}
 			tags_dir: ${{ input.tags_dir }}
 			tags_layout: ${{ input.tags_layout }}
