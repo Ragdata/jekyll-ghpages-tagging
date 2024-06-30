@@ -13,7 +13,7 @@
 </h3>
 
 <h3 align="center">
-<em>An automated solution for tagging Jekyll sites<br />that is fully compatible with GitHub Pages</em>
+<em>An automated solution for tagging Jekyll sites<br /><br />that is fully compatible with GitHub Pages</em>
 </h3>
 
 <div align="center">
@@ -69,7 +69,16 @@ This project provides a fully-automated solution for Jekyll tag management that 
         required: false
         default: "feed"
 
-### Example Workflow
+### Example Usage
+
+		uses: actions/jekyll-ghpages-tagging@v1
+		with:
+			github_token: ${{ github.token }}
+			posts_dir: ${{ input.posts_dir }}
+			tags_dir: ${{ input.tags_dir }}
+			tags_layout: ${{ input.tags_layout }}
+			feeds_dir: ${{ input.feeds_dir }}
+			feeds_layout: ${{ input.feeds_layout }}
 
 [`^ Top`](#toc)
 
