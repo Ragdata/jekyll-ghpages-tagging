@@ -44,30 +44,30 @@ This project provides a fully-automated solution for Jekyll tag management that 
 
 ### Inputs
 
-    github_token:
-        description: "GitHub access token with 'repo' scope"
-        required: false
-        default: ${{ github.token }}
-    posts_dir:
-        description: "Path to '_posts' directory from root"
-        required: true
-        default: "_posts"
-    tags_dir:
-        description: "Path to '_tags' directory from root"
-        required: true
-        default: "_tags"
-    tags_layout:
-        description: "Layout used by tag files"
-        required: true
-        default: "tags"
-    feeds_dir:
-        description: "Path to '_feeds' directory from root"
-        required: false
-        default: "_feeds"
+		github_token:
+			description: "GitHub access token with 'repo' scope"
+			required: false
+			default: ${{ github.token }}
+		posts_dir:
+			description: "Path to '_posts' directory from root"
+			required: true
+			default: "_posts"
+		tags_dir:
+			description: "Path to '_tags' directory from root"
+			required: true
+			default: "_tags"
+		tags_layout:
+			description: "Layout used by tag files"
+			required: true
+			default: "tags"
+		feeds_dir:
+			description: "Path to '_feeds' directory from root"
+			required: false
+			default: "_feeds"
     feeds_layout:
-        description: "Layout used by feed files"
-        required: false
-        default: "feed"
+		  description: "Layout used by feed files"
+		  required: false
+		  default: "feed"
 
 ### Example Usage
 
