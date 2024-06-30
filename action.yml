@@ -22,22 +22,21 @@ inputs:
         description: "Layout used by feed files"
         required: false
         default: "feed"
-    github_token:
-        description: "GitHub access token with 'repo' scope"
-        required: false
-        default: ${{ github.token }}
+    token:
+        description: "PAT token identifying user"
+        required: true
 
 
 runs:
     using: docker
     image: Dockerfile
     args:
-        - ${{ input.github_token }}
-        - ${{ input.posts_dir }}
-        - ${{ input.tags_dir }}
-        - ${{ input.tags_layout }}
-        - ${{ input.feeds_dir }}
-        - ${{ input.feeds_layout }}
+        - ${{ inputs.token }}
+        - ${{ inputs.posts_dir }}
+        - ${{ inputs.tags_dir }}
+        - ${{ inputs.tags_layout }}
+        - ${{ inputs.feeds_dir }}
+        - ${{ inputs.feeds_layout }}
 
 branding:
     icon: 'tag'
