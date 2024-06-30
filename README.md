@@ -11,11 +11,7 @@
 🔸
 <a href="https://github.com/ragdata/jekyll-ghpages-tagging/releases" target="_blank">Releases</a>
 </h3>
-
-<h3 align="center">
-<em>An automated solution for tagging Jekyll sites<br /><br />that is fully compatible with GitHub Pages</em>
-</h3>
-
+<br />
 <div align="center">
 
 <a name="toc"></a>
@@ -35,6 +31,8 @@ If you like this repository, please give it a ⭐ (it really does help)
 </h3>
 
 ## ⭐ [Project Overview](#toc)
+
+> An article tagging solution for Jekyll that is 100% compatible with GH-Pages
 
 If you're using GitHub Pages in SAFE mode, then you already know that most plugins are disabled and only a small number of plugins are whitelisted.  One of the plugins you **can't** use is [jekyll-tagging](https://github.com/pattex/jekyll-tagging) - which makes managing tags for your blog articles difficult.
 
