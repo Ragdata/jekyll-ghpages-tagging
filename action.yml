@@ -2,10 +2,6 @@ name: Jekyll GH-Pages Tagging Action
 description: Provides a fully-automated solution for Jekyll tag management that is 100% compatible with GitHub Pages by working through GitHub Actions instead of a plugin.
 author: 'ragdata'
 inputs:
-    github_token:
-        description: "GitHub access token with 'repo' scope"
-        required: false
-        default: ${{ github.token }}
     posts_dir:
         description: "Path to '_posts' directory from root"
         required: true
@@ -26,6 +22,11 @@ inputs:
         description: "Layout used by feed files"
         required: false
         default: "feed"
+    github_token:
+        description: "GitHub access token with 'repo' scope"
+        required: false
+        default: ${{ github.token }}
+
 
 runs:
     using: docker
