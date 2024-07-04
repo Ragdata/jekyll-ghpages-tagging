@@ -56,7 +56,7 @@ for tag in "${TAGS[@]}"; do
 		echo "::debug::Writing to file '$tagfile'"
 		# write tag file
 		echo -e "---\n" > "$tagfile"
-		printf "layout: %s\ntag-name: %s\n" "$INPUT_TAGS_LAYOUT" "$tag" >> "$tagfile"
+#		printf "layout: %s\ntag-name: %s\n" "$INPUT_TAGS_LAYOUT" "$tag" >> "$tagfile"
 		echo -e "---\n" >> "$tagfile"
 		chmod 0644 "$tagfile"
 		((tags_added++))
@@ -67,7 +67,7 @@ for tag in "${TAGS[@]}"; do
 			echo "::debug::Writing to file '$feedfile'"
 			# write feed file
 			echo -e "---\n" > "$feedfile"
-			printf "layout: %s\ntag-name: %s\n" "$INPUT_FEEDS_LAYOUT" "$tag" >> "$feedfile"
+#			printf "layout: %s\ntag-name: %s\n" "$INPUT_FEEDS_LAYOUT" "$tag" >> "$feedfile"
 			echo -e "---\n" >> "$feedfile"
 			chmod 0644 "$feedfile"
 			((feeds_added++))
