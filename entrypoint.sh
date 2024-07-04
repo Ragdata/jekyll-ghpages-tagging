@@ -30,10 +30,11 @@ FILES_ADDED=false
 [[ ${INPUT_TAGS_DIR:0:1} == "/" ]] && INPUT_TAGS_DIR="${INPUT_TAGS_DIR:1}"
 
 POSTS_DIR="$GITHUB_WORKSPACE/$INPUT_POSTS_DIR"
+[[ "$INPUT_DEBUG" == true ]] && echo "::debug::POSTS_DIR = '$POSTS_DIR'"
 TAGS_DIR="$GITHUB_WORKSPACE/$INPUT_TAGS_DIR"
 
-if [[ ! -d "$POSTS_DIR" ]]; then echo "::error::POSTS_DIR '$FEEDS_DIR' not found"; exit 1; fi
-if [[ ! -d "$TAGS_DIR" ]]; then echo "::error::TAGS_DIR '$FEEDS_DIR' not found"; exit 1; fi
+if [[ ! -d "$POSTS_DIR" ]]; then echo "::error::POSTS_DIR '$POSTS_DIR' not found"; exit 1; fi
+if [[ ! -d "$TAGS_DIR" ]]; then echo "::error::TAGS_DIR '$TAGS_DIR' not found"; exit 1; fi
 
 if [[ -n "$INPUT_FEEDS_DIR" ]]; then
 	[[ ${INPUT_FEEDS_DIR:0:1} == "/" ]] && INPUT_FEEDS_DIR="${INPUT_FEEDS_DIR:1}"
