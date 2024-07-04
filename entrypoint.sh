@@ -78,7 +78,7 @@ set -e
 # PROCESS
 ####################################################################
 
-if [ "$DEBUG" == true ]; then
+if [ "$DEBUG" = true ]; then
 	echo "Environment:"
 	env
 	echo
