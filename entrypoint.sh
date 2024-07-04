@@ -52,7 +52,7 @@ fi
 
 for tag in "${TAGS[@]}"; do
 	# build filename
-	tagfile="$TAGS_DIR/$tag.md"
+	tagfile="$INPUT_TAGS_DIR/$tag.md"
 	# check filename exists
 	if [ ! -e "$tagfile" ]; then
 		# write tag file
@@ -61,7 +61,7 @@ for tag in "${TAGS[@]}"; do
 		((tags_added++))
 	fi
 	if [ -n "$INPUT_FEEDS_DIR" ]; then
-		feedfile="$FEEDS_DIR/$tag.xml"
+		feedfile="$INPUT_FEEDS_DIR/$tag.xml"
 		if [ ! -e "$feedfile" ]; then
 			# write feed file
 			printf "---\nlayout: %s\ntag-name: %s\n---\n" "$INPUT_FEEDS_LAYOUT" "$tag" > "$feedfile"
