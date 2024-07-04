@@ -13,13 +13,9 @@
 
 set -e
 
-if [[ "$INPUT_DEBUG" != true ]]; then
-	echo "::group::Debug"
-	echo "Environment:"
-	env
-	echo "Working Directory: $PWD"
-	echo "::endgroup::"
-fi
+echo "::group::Environment"
+env
+echo "::endgroup::"
 
 declare -a POST_TAGS
 declare -a TAGS
@@ -27,17 +23,15 @@ declare -a TAGS
 FILES_ADDED=false
 
 [[ ${INPUT_POSTS_DIR:0:1} == "/" ]] && INPUT_POSTS_DIR="${INPUT_POSTS_DIR:1}"
-[[ ${INPUT_TAGS_DIR:0:1} == "/" ]] && INPUT_TAGS_DIR="${INPUT_TAGS_DIR:1}"
-
-POSTS_DIR="./${INPUT_POSTS_DIR}"
-TAGS_DIR="./${INPUT_TAGS_DIR}"
-
 if [ ! -d "$INPUT_POSTS_DIR" ]; then echo "::error::INPUT_POSTS_DIR '$INPUT_POSTS_DIR' not found"; exit 1; fi
-if [ ! -d "$INPUT_TAGS_DIR" ]; then echo "::error::INPUT_TAGS_DIR '$INPUT_TAGS_DIR' not found"; exit 1; fi
+
+
+#[[ ${INPUT_TAGS_DIR:0:1} == "/" ]] && INPUT_TAGS_DIR="${INPUT_TAGS_DIR:1}"
+#if [ ! -d "$INPUT_TAGS_DIR" ]; then echo "::error::INPUT_TAGS_DIR '$INPUT_TAGS_DIR' not found"; exit 1; fi
+
 
 if [[ -n "$INPUT_FEEDS_DIR" ]]; then
 	[[ ${INPUT_FEEDS_DIR:0:1} == "/" ]] && INPUT_FEEDS_DIR="${INPUT_FEEDS_DIR:1}"
-	FEEDS_DIR="./${INPUT_FEEDS_DIR}"
 	if [ ! -d "$INPUT_FEEDS_DIR" ]; then echo "::error::FEEDS_DIR '$INPUT_FEEDS_DIR' not found"; exit 1; fi
 fi
 
