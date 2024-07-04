@@ -18,7 +18,7 @@ if [[ "$INPUT_DEBUG" == true ]]; then
 	echo "Environment:"
 	env
 	echo "Working Directory: $PWD"
-	ls -alF
+	ls -alF "$PWD/$INPUT_POSTS_DIR"
 	echo "::endgroup::"
 fi
 
