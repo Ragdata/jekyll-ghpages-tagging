@@ -26,10 +26,6 @@ inputs:
         description: "Remove unused tags"
         required: false
         default: "true"
-    github_token:
-        description: "GitHub Token"
-        required: true
-        default: ${{ github.token }}
 
 runs:
     using: docker
