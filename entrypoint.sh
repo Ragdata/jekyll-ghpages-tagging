@@ -16,10 +16,6 @@ set -e
 ####################################################################
 # ENVIRONMENT VARIABLES
 ####################################################################
-## debug switch
-## default: `false`
-#DEBUG=${INPUT_DEBUG:-${DEBUG:-false}}
-#
 ## branch to deploy to
 ## default: `gh-pages`
 #GHPAGES_BRANCH=${INPUT_GHPAGES_BRANCH:-${GHPAGES_BRANCH:-"gh-pages"}}
@@ -78,7 +74,7 @@ set -e
 # PROCESS
 ####################################################################
 
-if [ "$DEBUG" = true ]; then
+if [ "$INPUT_DEBUG" = true ]; then
 	echo "::group::Debug"
 	echo "Environment:"
 	env
