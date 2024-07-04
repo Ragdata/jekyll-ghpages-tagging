@@ -5,7 +5,7 @@
 
 cff-version: 1.2.0
 
-title: Jekyll GH-Pages Tagging Composite Action
+title: Jekyll GH-Pages Tagging Action
 
 message: >-
   If you use this software, please cite using the
@@ -20,11 +20,11 @@ authors:
     orcid: 'https://orcid.org/0000-0001-8986-2886'
     affiliation: Redeyed Software
 
-repository-code: 'https://github.com/ragdata/jekyll-ghpages-tagging.composite-action'
+repository-code: 'https://github.com/ragdata/jekyll-ghpages-tagging'
 
-url: 'https://ragdata.github.io/jekyll-ghpages-tagging.composite-action'
+url: 'https://ragdata.github.io/jekyll-ghpages-tagging'
 
 abstract: >-
-  The
+  A Jekyll tag management solution that is 100% compatible with GitHub Pages.
 
 license: MIT

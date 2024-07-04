@@ -1,5 +1,5 @@
 name: Jekyll GH-Pages Tagging Action
-description: Provides a fully-automated solution for Jekyll tag management that is 100% compatible with GitHub Pages by working through GitHub Actions instead of a plugin.
+description: A Jekyll tag management solution that is 100% compatible with GitHub Pages.
 author: 'ragdata'
 inputs:
     posts_dir:

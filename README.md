@@ -41,41 +41,58 @@ This project provides a fully-automated solution for Jekyll tag management that 
 ## 📂 [Usage](#toc)
 
 ### Inputs
-
-		token:
-			description: "GitHub access token with 'repo' scope"
-			required: false
-		posts_dir:
-			description: "Path to '_posts' directory from root"
-			required: true
-			default: "_posts"
-		tags_dir:
-			description: "Path to '_tags' directory from root"
-			required: true
-			default: "_tags"
-		tags_layout:
-			description: "Layout used by tag files"
-			required: true
-			default: "tags"
-		feeds_dir:
-			description: "Path to '_feeds' directory from root"
-			required: false
-			default: "_feeds"
-    feeds_layout:
-		  description: "Layout used by feed files"
-		  required: false
-		  default: "feed"
-
+```yaml
+posts_dir:
+    description: "Path to '_posts' directory from root"
+    required: true
+    default: "_posts"
+tags_dir:
+    description: "Path to '_tags' directory from root"
+    required: true
+    default: "_tags"
+tags_layout:
+    description: "Layout used by tag files"
+    required: true
+    default: "tags"
+feeds_dir:
+    description: "Path to '_feeds' directory from root"
+    required: false
+    default: "_feeds"
+feeds_layout:
+    description: "Layout used by feed files"
+    required: false
+    default: "feed"
+prune_tags:
+    description: "Remove unused tags"
+    required: false
+    default: "true"
+github_token:
+    description: "GitHub Token"
+    required: true
+    default: ${{ github.token }}
+```
 ### Example Usage
 
-		uses: actions/jekyll-ghpages-tagging@v1
-		with:
-			github_token: ${{ secrets.token }}
-			posts_dir: ${{ input.posts_dir }}
-			tags_dir: ${{ input.tags_dir }}
-			tags_layout: ${{ input.tags_layout }}
-			feeds_dir: ${{ input.feeds_dir }}
-			feeds_layout: ${{ input.feeds_layout }}
+```yaml
+steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+    - name: Call Tag Generator Action
+      uses: ragdata/jekyll-ghpages-tagging@v1
+      with:
+          posts_dir: ${{ inputs.posts_dir }}
+          tags_dir: ${{ inputs.tags_dir }}
+          tags_layout: ${{ inputs.tags_layout }}
+          feeds_dir: ${{ inputs.feeds_dir }}
+          feeds_layout: ${{ inputs.feeds_layout }}
+```
+
+### Reusable Workflow & Caller
+
+You can find working examples as part of my [**Reusable Workflows**](https://github.com/ragdata/reusable-workflows) repository:
+
+* Workflow: [jekyll-ghpages-tagging.yml](https://github.com/Ragdata/reusable-workflows/blob/master/.github/workflows/jekyll-ghpages-tagging.yml)
+* Caller: [call.jekyll-ghpages-tagging.yml](https://github.com/Ragdata/reusable-workflows/blob/master/callers/call.jekyll-ghpages-tagging.yml)
 
 [`^ Top`](#toc)
 
