@@ -13,7 +13,7 @@
 
 set -e
 
-if [ "$INPUT_DEBUG" = true ]; then
+if [[ "$INPUT_DEBUG" == true ]]; then
 	echo "::group::Debug"
 	echo "Environment:"
 	env
