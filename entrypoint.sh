@@ -79,11 +79,12 @@ set -e
 ####################################################################
 
 if [ "$DEBUG" = true ]; then
+	echo "::group::Debug"
 	echo "Environment:"
 	env
 	echo
 	echo "Working Directory: $PWD"
-	echo
+	echo "::endgroup::"
 	set -x
 fi
 
