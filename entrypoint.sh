@@ -28,10 +28,8 @@ feeds_added=0
 if [ ! -d "$INPUT_POSTS_DIR" ]; then echo "::error::INPUT_POSTS_DIR '$INPUT_POSTS_DIR' not found"; exit 1; fi
 
 for file in "$INPUT_POSTS_DIR"/*; do
-	# get filename
-	filename="${file##*/}"
 	# extract 'tags' line from file
-	line=$(grep -Ei '^tags: ?\[.+\]$' "$filename")
+	line=$(grep -Ei '^tags: ?\[.+\]$' "$file")
 	# remove whitespace
 	line="${line//, /,}"
 	# lowercase
