@@ -56,7 +56,7 @@ for tag in "${TAGS[@]}"; do
 	# check filename exists
 	if [ ! -e "$tagfile" ]; then
 		# write tag file
-		printf "---\nlayout: %s\ntag-name: %s\n---\n" "$INPUT_TAGS_LAYOUT" "$tag" > "$tagfile"
+		printf -- "---\nlayout: %s\ntag-name: %s\n---\n" "$INPUT_TAGS_LAYOUT" "$tag" > "$tagfile"
 		chmod 0644 "$tagfile"
 		((tags_added++))
 	fi
@@ -64,7 +64,7 @@ for tag in "${TAGS[@]}"; do
 		feedfile="$INPUT_FEEDS_DIR/$tag.xml"
 		if [ ! -e "$feedfile" ]; then
 			# write feed file
-			printf "---\nlayout: %s\ntag-name: %s\n---\n" "$INPUT_FEEDS_LAYOUT" "$tag" > "$feedfile"
+			printf -- "---\nlayout: %s\ntag-name: %s\n---\n" "$INPUT_FEEDS_LAYOUT" "$tag" > "$feedfile"
 			chmod 0644 "$feedfile"
 			((feeds_added++))
 		fi
