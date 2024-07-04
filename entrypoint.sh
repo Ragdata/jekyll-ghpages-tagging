@@ -52,6 +52,7 @@ for tag in "${TAGS[@]}"; do
 	# write tag file if not exists
 	if [ ! -e "$tagfile" ]; then
 		echo "::debug::Writing to file '$tagfile'"
+		if [ ! -w "$INPUT_TAGS_DIR" ]; then echo "::error::Directory '$INPUT_TAGS_DIR' not writable"; exit 1; fi
 		# write tag file
 		printf -- "---\nlayout: %s\ntag-name: %s\n---\n" "$INPUT_TAGS_LAYOUT" "$tag" > "$tagfile"
 		chmod 0644 "$tagfile"

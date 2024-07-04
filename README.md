@@ -66,33 +66,12 @@ prune_tags:
     description: "Remove unused tags"
     required: false
     default: "true"
-github_token:
-    description: "GitHub Token"
-    required: true
-    default: ${{ github.token }}
 ```
-### Example Usage
+### Example Workflow
 
 ```yaml
-steps:
-    - name: Checkout
-      uses: actions/checkout@v4
-    - name: Call Tag Generator Action
-      uses: ragdata/jekyll-ghpages-tagging@v1
-      with:
-          posts_dir: ${{ inputs.posts_dir }}
-          tags_dir: ${{ inputs.tags_dir }}
-          tags_layout: ${{ inputs.tags_layout }}
-          feeds_dir: ${{ inputs.feeds_dir }}
-          feeds_layout: ${{ inputs.feeds_layout }}
+
 ```
-
-### Reusable Workflow & Caller
-
-You can find working examples as part of my [**Reusable Workflows**](https://github.com/ragdata/reusable-workflows) repository:
-
-* Workflow: [jekyll-ghpages-tagging.yml](https://github.com/Ragdata/reusable-workflows/blob/master/.github/workflows/jekyll-ghpages-tagging.yml)
-* Caller: [call.jekyll-ghpages-tagging.yml](https://github.com/Ragdata/reusable-workflows/blob/master/callers/call.jekyll-ghpages-tagging.yml)
 
 [`^ Top`](#toc)
 
