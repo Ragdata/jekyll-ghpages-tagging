@@ -55,7 +55,7 @@ for tag in "${TAGS[@]}"; do
 		# write tag file
 #		printf -- "---\nlayout: %s\ntag-name: %s\n---\n" "$INPUT_TAGS_LAYOUT" "$tag" > "$tagfile"
 #		chmod 0644 "$tagfile"
-		((tags_added++))
+#		((tags_added++))
 	fi
 	if [ -n "$INPUT_FEEDS_DIR" ]; then
 		feedfile="$INPUT_FEEDS_DIR/$tag.xml"
@@ -64,30 +64,30 @@ for tag in "${TAGS[@]}"; do
 			# write feed file
 #			printf -- "---\nlayout: %s\ntag-name: %s\n---\n" "$INPUT_FEEDS_LAYOUT" "$tag" > "$feedfile"
 #			chmod 0644 "$feedfile"
-			((feeds_added++))
+#			((feeds_added++))
 		fi
 	fi
 done
 
-if [ "$INPUT_PRUNE_TAGS" = true ]; then
-	for file in "$INPUT_TAGS_DIR"/*; do
-		# get filename
-		filename="${file##*/}"
-		# get tagname
-		tagname=${filename%.*}
-		value="\<${tagname}\>"
-		# shellcheck disable=SC2199
-		if [[ ! ${TAGS[@]} =~ $value ]]; then
-			rm -f "$file"
-			if [ -n "$INPUT_FEEDS_DIR" ]; then
-				# get feedname
-				feedname="$INPUT_FEEDS_DIR/$tagname.xml"
-				[ -f "$feedname" ] && rm -f "$feedname"
-			fi
-			((tags_removed++))
-		fi
-	done
-fi
+#if [ "$INPUT_PRUNE_TAGS" = true ]; then
+#	for file in "$INPUT_TAGS_DIR"/*; do
+#		# get filename
+#		filename="${file##*/}"
+#		# get tagname
+#		tagname=${filename%.*}
+#		value="\<${tagname}\>"
+#		# shellcheck disable=SC2199
+#		if [[ ! ${TAGS[@]} =~ $value ]]; then
+#			rm -f "$file"
+#			if [ -n "$INPUT_FEEDS_DIR" ]; then
+#				# get feedname
+#				feedname="$INPUT_FEEDS_DIR/$tagname.xml"
+#				[ -f "$feedname" ] && rm -f "$feedname"
+#			fi
+#			((tags_removed++))
+#		fi
+#	done
+#fi
 
 if (("$tags_added" > 0)) || (("$feeds_added" > 0)) || (("$tags_removed" > 0)); then
 	git add -A
