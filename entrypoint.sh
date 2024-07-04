@@ -53,6 +53,7 @@ for tag in "${TAGS[@]}"; do
 	tagfile="$INPUT_TAGS_DIR/$tag.md"
 	# check filename exists
 	if [ ! -e "$tagfile" ]; then
+		echo "::debug::Writing to file '$tagfile'"
 		# write tag file
 		printf "%slayout: %s\ntag-name: %s\n%s" "$fmt" "$INPUT_TAGS_LAYOUT" "$tag" "$fmt" > "$tagfile"
 		chmod 0644 "$tagfile"
