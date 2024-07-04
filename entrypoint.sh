@@ -52,10 +52,9 @@ for tag in "${TAGS[@]}"; do
 	# write tag file if not exists
 	if [ ! -e "$tagfile" ]; then
 		echo "::debug::Writing to file '$tagfile'"
-		if [ ! -w "$INPUT_TAGS_DIR" ]; then echo "::error::Directory '$INPUT_TAGS_DIR' not writable"; exit 1; fi
 		# write tag file
-		printf -- "---\nlayout: %s\ntag-name: %s\n---\n" "$INPUT_TAGS_LAYOUT" "$tag" > "$tagfile"
-		chmod 0644 "$tagfile"
+#		printf -- "---\nlayout: %s\ntag-name: %s\n---\n" "$INPUT_TAGS_LAYOUT" "$tag" > "$tagfile"
+#		chmod 0644 "$tagfile"
 		((tags_added++))
 	fi
 	if [ -n "$INPUT_FEEDS_DIR" ]; then
@@ -63,8 +62,8 @@ for tag in "${TAGS[@]}"; do
 		if [ ! -e "$feedfile" ]; then
 			echo "::debug::Writing to file '$feedfile'"
 			# write feed file
-			printf -- "---\nlayout: %s\ntag-name: %s\n---\n" "$INPUT_FEEDS_LAYOUT" "$tag" > "$feedfile"
-			chmod 0644 "$feedfile"
+#			printf -- "---\nlayout: %s\ntag-name: %s\n---\n" "$INPUT_FEEDS_LAYOUT" "$tag" > "$feedfile"
+#			chmod 0644 "$feedfile"
 			((feeds_added++))
 		fi
 	fi
