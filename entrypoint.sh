@@ -32,13 +32,13 @@ FILES_ADDED=false
 POSTS_DIR="./${INPUT_POSTS_DIR}"
 TAGS_DIR="./${INPUT_TAGS_DIR}"
 
-if [ ! -d "$POSTS_DIR" ]; then echo "::error::INPUT_POSTS_DIR '$POSTS_DIR' not found"; exit 1; fi
-if [ ! -d "$TAGS_DIR" ]; then echo "::error::INPUT_TAGS_DIR '$TAGS_DIR' not found"; exit 1; fi
+if [ ! -d "$INPUT_POSTS_DIR" ]; then echo "::error::INPUT_POSTS_DIR '$INPUT_POSTS_DIR' not found"; exit 1; fi
+if [ ! -d "$INPUT_TAGS_DIR" ]; then echo "::error::INPUT_TAGS_DIR '$INPUT_TAGS_DIR' not found"; exit 1; fi
 
 if [[ -n "$INPUT_FEEDS_DIR" ]]; then
 	[[ ${INPUT_FEEDS_DIR:0:1} == "/" ]] && INPUT_FEEDS_DIR="${INPUT_FEEDS_DIR:1}"
 	FEEDS_DIR="./${INPUT_FEEDS_DIR}"
-	if [ ! -d "$FEEDS_DIR" ]; then echo "::error::FEEDS_DIR '$FEEDS_DIR' not found"; exit 1; fi
+	if [ ! -d "$INPUT_FEEDS_DIR" ]; then echo "::error::FEEDS_DIR '$INPUT_FEEDS_DIR' not found"; exit 1; fi
 fi
 
 ## download tag generator script
