@@ -51,21 +51,24 @@ fmt="---\n"
 for tag in "${TAGS[@]}"; do
 	# build filename
 	tagfile="$INPUT_TAGS_DIR/$tag.md"
-	# build file output array
-	tagarray=("---" "layout: ${INPUT_TAGS_LAYOUT}" "tag-name: ${tag}" "---")
-	# check filename exists
+	# write tag file if not exists
 	if [ ! -e "$tagfile" ]; then
 		echo "::debug::Writing to file '$tagfile'"
 		# write tag file
-		printf "%s\n" "${tagarray[*]}" > "$tagfile"
+		echo -e "---\n" > "$tagfile"
+		printf "layout: %s\ntag-name: %s\n" "$INPUT_TAGS_LAYOUT" "$tag" >> "$tagfile"
+		echo -e "---\n" >> "$tagfile"
 		chmod 0644 "$tagfile"
 		((tags_added++))
 	fi
 	if [ -n "$INPUT_FEEDS_DIR" ]; then
 		feedfile="$INPUT_FEEDS_DIR/$tag.xml"
 		if [ ! -e "$feedfile" ]; then
+			echo "::debug::Writing to file '$feedfile'"
 			# write feed file
-			printf "%s\n" "${tagarray[*]}" > "$feedfile"
+			echo -e "---\n" > "$feedfile"
+			printf "layout: %s\ntag-name: %s\n" "$INPUT_FEEDS_LAYOUT" "$tag" >> "$feedfile"
+			echo -e "---\n" >> "$feedfile"
 			chmod 0644 "$feedfile"
 			((feeds_added++))
 		fi
