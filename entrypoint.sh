@@ -46,13 +46,15 @@ if [[ -n "$INPUT_FEEDS_DIR" ]]; then
 	if [ ! -d "$INPUT_FEEDS_DIR" ]; then mkdir -p "$INPUT_FEEDS_DIR"; fi
 fi
 
+fmt="---\n"
+
 for tag in "${TAGS[@]}"; do
 	# build filename
 	tagfile="$INPUT_TAGS_DIR/$tag.md"
 	# check filename exists
 	if [ ! -e "$tagfile" ]; then
 		# write tag file
-		printf "\055--\nlayout: %s\ntag-name: %s\n---\n" "$INPUT_TAGS_LAYOUT" "$tag" > "$tagfile"
+		printf "%slayout: %s\ntag-name: %s\n%s" "$fmt" "$INPUT_TAGS_LAYOUT" "$tag" "$fmt" > "$tagfile"
 		chmod 0644 "$tagfile"
 		((tags_added++))
 	fi
@@ -60,7 +62,7 @@ for tag in "${TAGS[@]}"; do
 		feedfile="$INPUT_FEEDS_DIR/$tag.xml"
 		if [ ! -e "$feedfile" ]; then
 			# write feed file
-			printf "\055--\nlayout: %s\ntag-name: %s\n---\n" "$INPUT_FEEDS_LAYOUT" "$tag" > "$feedfile"
+			printf "%slayout: %s\ntag-name: %s\n%s" "$fmt" "$INPUT_FEEDS_LAYOUT" "$tag" "$fmt" > "$feedfile"
 			chmod 0644 "$feedfile"
 			((feeds_added++))
 		fi
