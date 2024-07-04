@@ -46,8 +46,6 @@ if [[ -n "$INPUT_FEEDS_DIR" ]]; then
 	if [ ! -d "$INPUT_FEEDS_DIR" ]; then mkdir -p "$INPUT_FEEDS_DIR"; fi
 fi
 
-fmt="---\n"
-
 for tag in "${TAGS[@]}"; do
 	# build filename
 	tagfile="$INPUT_TAGS_DIR/$tag.md"
@@ -55,10 +53,8 @@ for tag in "${TAGS[@]}"; do
 	if [ ! -e "$tagfile" ]; then
 		echo "::debug::Writing to file '$tagfile'"
 		# write tag file
-#		echo -e "---\n" > "$tagfile"
-##		printf "layout: %s\ntag-name: %s\n" "$INPUT_TAGS_LAYOUT" "$tag" >> "$tagfile"
-#		echo -e "---\n" >> "$tagfile"
-#		chmod 0644 "$tagfile"
+		printf -- "---\nlayout: %s\ntag-name: %s\n---\n" "$INPUT_TAGS_LAYOUT" "$tag" > "$tagfile"
+		chmod 0644 "$tagfile"
 		((tags_added++))
 	fi
 	if [ -n "$INPUT_FEEDS_DIR" ]; then
@@ -66,10 +62,8 @@ for tag in "${TAGS[@]}"; do
 		if [ ! -e "$feedfile" ]; then
 			echo "::debug::Writing to file '$feedfile'"
 			# write feed file
-#			echo -e "---\n" > "$feedfile"
-##			printf "layout: %s\ntag-name: %s\n" "$INPUT_FEEDS_LAYOUT" "$tag" >> "$feedfile"
-#			echo -e "---\n" >> "$feedfile"
-#			chmod 0644 "$feedfile"
+			printf -- "---\nlayout: %s\ntag-name: %s\n---\n" "$INPUT_FEEDS_LAYOUT" "$tag" > "$feedfile"
+			chmod 0644 "$feedfile"
 			((feeds_added++))
 		fi
 	fi
