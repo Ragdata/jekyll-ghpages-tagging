@@ -42,7 +42,7 @@ If you're using GitHub Pages in SAFE mode, then you already know that most plugi
 
 This project provides a fully-automated solution for Jekyll tag management that is 100% compatible with GitHub Pages by doing the work through GitHub Actions instead of a Jekyll plugin.  Like most of my projects, this one was inspired by my own need for the solution.
 
-If you've got an idea you'd like to see implemented, submit a [feature request](https://github.com/Ragdata/jekyll-ghpages-tagging/issues/new?assignees=Ragdata&labels=request%2CNEW&projects=&template=feature-request.yml&title=%5BREQUEST%5D%3A+%3Ctitle%3E) and it will be considered for inclusion in an upcoming release.
+> If you've got an idea you'd like to see implemented, submit a [feature request](https://github.com/Ragdata/jekyll-ghpages-tagging/issues/new?assignees=Ragdata&labels=request%2CNEW&projects=&template=feature-request.yml&title=%5BREQUEST%5D%3A+%3Ctitle%3E) and it will be considered for inclusion in an upcoming release.
 
 ## 📂 [Usage](#toc)
 
