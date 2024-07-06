@@ -11,16 +11,72 @@
 # Copyright:    Copyright © 2024 Darren (Ragdata) Poulton
 ####################################################################
 
-set -e
+set -eEuo pipefail
+
+shopt -s inherit_errexit
+
+IFS=$'\n\t'	# set unofficial strict mode @see: http://redsymbol.net/articles/unofficial-bash-strict-mode/
+
+####################################################################
+# FUNCTIONS
+####################################################################
+re::errorHandler()
+{
+	local -n lineNo="${1:-LINENO}"
+	local -n bashLineNo="${2:-BASH_LINENO}"
+	local lastCommand="${3:-BASH_COMMAND}"
+	local code="${4:-0}"
+
+	local lastCommandHeight
+
+	[[ "$code" -eq 0 ]] && return 0
+
+	lastCommandHeight="$(wc -l <<<"${lastCommand}")"
+
+	local -a outputArray=()
+
+	outputArray+=(
+		'---'
+		"Line History: [${lineNo} ${bashLineNo[*]}]"
+		"Function Trace: [${FUNCNAME[*]}]"
+		"Exit Code: ${code}"
+	)
+
+	[[ "${#BASH_SOURCE[@]}" -gt 1 ]] && {
+		outputArray+=('source_trace:')
+		for item in "${BASH_SOURCE[@]}"; do
+			outputArray+=(" - ${item}")
+		done
+	} || outputArray+=("source_trace: [${BASH_SOURCE[*]}]")
+
+	[[ "${lastCommandHeight}" -gt 1 ]] && {
+		outputArray+=('last_command: ->' "${lastCommand}")
+	} || outputArray+=("last_command: ${lastCommand}")
+
+	outputArray+=('---')
+
+	printf '%s\n' "${outputArray[@]}" >&2
+
+	exit "$code"
+}
+####################################################################
+# MAIN
+####################################################################
+trap 're::errorHandler "LINENO" "BASH_LINENO" "${BASH_COMMAND}" "${?}"' ERR
 
 declare -a POST_TAGS
 declare -a TAGS
 
-tags_added=0
-tags_removed=0
-feeds_added=0
+tagsAdded=0
+tagsRemoved=0
+feedsAdded=0
 
+#-------------------------------------------------------------------
+# Process Posts
+#-------------------------------------------------------------------
+[[ ${INPUT_POSTS_DIR:0:2} == "./" ]] && INPUT_POSTS_DIR="${INPUT_POSTS_DIR:2}"
 [[ ${INPUT_POSTS_DIR:0:1} == "/" ]] && INPUT_POSTS_DIR="${INPUT_POSTS_DIR:1}"
+
 if [ ! -d "$INPUT_POSTS_DIR" ]; then echo "::error::INPUT_POSTS_DIR '$INPUT_POSTS_DIR' not found"; exit 1; fi
 
 for file in "$INPUT_POSTS_DIR"/*; do
@@ -38,12 +94,15 @@ for file in "$INPUT_POSTS_DIR"/*; do
 	mapfile -t TAGS < <(printf '%s\n' "${POST_TAGS[@]}")
 done
 
+#-------------------------------------------------------------------
+# Process Tags & Feeds
+#-------------------------------------------------------------------
 [[ ${INPUT_TAGS_DIR:0:1} == "/" ]] && INPUT_TAGS_DIR="${INPUT_TAGS_DIR:1}"
-if [ ! -d "$INPUT_TAGS_DIR" ]; then mkdir -p "$INPUT_TAGS_DIR"; fi
+if [ ! -d "$INPUT_TAGS_DIR" ]; then mkdir -p "$INPUT_TAGS_DIR" || { echo "::error::Unable to create directory '$INPUT_TAGS_DIR'"; exit 1; } fi
 
 if [[ -n "$INPUT_FEEDS_DIR" ]]; then
 	[[ ${INPUT_FEEDS_DIR:0:1} == "/" ]] && INPUT_FEEDS_DIR="${INPUT_FEEDS_DIR:1}"
-	if [ ! -d "$INPUT_FEEDS_DIR" ]; then mkdir -p "$INPUT_FEEDS_DIR"; fi
+	if [ ! -d "$INPUT_FEEDS_DIR" ]; then mkdir -p "$INPUT_FEEDS_DIR" || { echo "::error::Unable to create directory '$INPUT_FEEDS_DIR'"; exit 1; }; fi
 fi
 
 for tag in "${TAGS[@]}"; do
@@ -55,46 +114,69 @@ for tag in "${TAGS[@]}"; do
 		# write tag file
 		printf -- "---\nlayout: %s\ntag-name: %s\n---\n" "$INPUT_TAGS_LAYOUT" "$tag" > "$tagfile"
 		chmod 0644 "$tagfile"
-		((tags_added+=1))
+		((tagsAdded+=1))
 	fi
 	if [ -n "$INPUT_FEEDS_DIR" ]; then
-		feedfile="$INPUT_FEEDS_DIR/$tag.xml"
-		if [ ! -e "$feedfile" ]; then
-			echo "::debug::Writing to file '$feedfile'"
+		feedFile="$INPUT_FEEDS_DIR/$tag.xml"
+		if [ ! -e "$feedFile" ]; then
+			echo "::debug::Writing to file '$feedFile'"
 			# write feed file
-			printf -- "---\nlayout: %s\ntag-name: %s\n---\n" "$INPUT_FEEDS_LAYOUT" "$tag" > "$feedfile"
-			chmod 0644 "$feedfile"
-			((feeds_added+=1))
+			printf -- "---\nlayout: %s\ntag-name: %s\n---\n" "$INPUT_FEEDS_LAYOUT" "$tag" > "$feedFile"
+			chmod 0644 "$feedFile"
+			((feedsAdded+=1))
 		fi
 	fi
 done
 
-#if [ "$INPUT_PRUNE_TAGS" = true ]; then
-#	for file in "$INPUT_TAGS_DIR"/*; do
-#		# get filename
-#		filename="${file##*/}"
-#		# get tagname
-#		tagname=${filename%.*}
-#		value="\<${tagname}\>"
-#		# shellcheck disable=SC2199
-#		if [[ ! ${TAGS[@]} =~ $value ]]; then
-#			rm -f "$file"
-#			if [ -n "$INPUT_FEEDS_DIR" ]; then
-#				# get feedname
-#				feedname="$INPUT_FEEDS_DIR/$tagname.xml"
-#				[ -f "$feedname" ] && rm -f "$feedname"
-#			fi
-#			((tags_removed++))
-#		fi
-#	done
-#fi
+#-------------------------------------------------------------------
+# Prune Tags
+#-------------------------------------------------------------------
+if [ "$INPUT_PRUNE_TAGS" = true ]; then
+	for file in "$INPUT_TAGS_DIR"/*; do
+		# get filename
+		filename="${file##*/}"
+		# get tagName
+		tagName=${filename%.*}
+		value="\<${tagName}\>"
+		# shellcheck disable=SC2199
+		if [[ ! ${TAGS[@]} =~ $value ]]; then
+			echo "::debug::Removing Tag file '$file'"
+			rm -f "$file"
+			if [ -n "$INPUT_FEEDS_DIR" ]; then
+				# get feedName
+				feedName="$INPUT_FEEDS_DIR/$tagName.xml"
+				echo "::debug::Removing Feed file '$feedName'"
+				[ -f "$feedName" ] && rm -f "$feedName"
+			fi
+			((tagsRemoved+=1))
+		fi
+	done
+fi
 
-if (("$tags_added" > 0)) || (("$feeds_added" > 0)) || (("$tags_removed" > 0)); then
+#-------------------------------------------------------------------
+# Commit New Files to Repo
+#-------------------------------------------------------------------
+if (("$tagsAdded" > 0)) || (("$feedsAdded" > 0)) || (("$tagsRemoved" > 0)); then
+	echo "::debug::Committing Added Files to Git"
 	git add -A
 	git commit -m "tags &/or feeds modified\n\nAutomated using $GITHUB_ACTION in $GITHUB_WORKFLOW"
 	git push
 fi
 
-printf "Tags Added: %d\nFeeds Added: %d\nTags Removed: %d" "$tags_added" "$feeds_added" "$tags_removed" >> "$GITHUB_STEP_SUMMARY"
+#-------------------------------------------------------------------
+# Write Job Summary
+#-------------------------------------------------------------------
+summaryTable="
+| Function	   | Result		  |
+| ------------ | :----------: |
+| Tags Added   | $tagsAdded	  |
+| Feeds Added  | $feedsAdded  |
+| Tags Removed | $tagsRemoved |
+"
+
+cat << EOF >> "$GITHUB_STEP_SUMMARY"
+### :gear: jekyll-ghpages-tagging Action Summary
+$summaryTable
+EOF
 
 exit 0
