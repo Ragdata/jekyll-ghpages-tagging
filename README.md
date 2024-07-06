@@ -44,6 +44,19 @@ This project provides a fully-automated solution for Jekyll tag management that 
 
 > If you've got an idea you'd like to see implemented, submit a [feature request](https://github.com/Ragdata/jekyll-ghpages-tagging/issues/new?assignees=Ragdata&labels=request%2CNEW&projects=&template=feature-request.yml&title=%5BREQUEST%5D%3A+%3Ctitle%3E) and it will be considered for inclusion in an upcoming release.
 
+## ❓ [What Does It Do?](#toc)
+
+1. Scans the `posts_dir` for a list of blog articles
+2. Extracts a list of tags used in those articles
+3. Creates config files in `tags_dir` for new tags
+   * _Optionally creates config files in `feeds_dir` for new tags also_
+4. Deletes config files for tags & feeds which are no longer in use
+5. Commits changes to git and pushes to repo
+
+`Tag Files` - form a Jekyll Collection which can be used to index blog articles according to their associated tag(s).
+
+`Feed Files` - allow you distribute your articles in ATOM (RSS) format and curate your feeds according to their associated tag(s).
+
 ## 📂 [Usage](#toc)
 
 ### Inputs
