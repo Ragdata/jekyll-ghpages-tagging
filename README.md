@@ -2,7 +2,7 @@
 
 <img height="256" src="https://raw.githubusercontent.com/Ragdata/media/master/logo/Ragdata-64.svg" alt="Jekyll GH-Pages Tagging Script" />
 
-[Jekyll GH-Pages Tagging<br />GitHub Action v-0.1.0](https://github.com/ragdata/jekyll-ghpages-tagging/releases/tag/v-0.1.0)
+[Jekyll GH-Pages Tagging<br />GitHub Action v0.1.0](https://github.com/ragdata/jekyll-ghpages-tagging/releases/tag/v0.1.0)
 
 </h1>
 
@@ -177,12 +177,23 @@ If you discover any issue regarding the security of this project, please disclos
 
 ## ©️ [Copyright & Attributions](#toc)
 
+**Jekyll GitHub-Pages Tagging Action**<br />
+Copyright &copy; 2024 Redeyed Technologies
+
 This project incorporates ideas and / or code crafted by the following talented individuals:
 
 * [**Article: How do I tag posts in Jekyll? Jekyll tagging made simple**](https://www.untangled.dev/2020/06/02/tag-management-jekyll/)<br />
   Copyright &copy; 2020 - [Joseph Zammit](https://github.com/jvzammit) @ [Untangled Development](https://www.untangled.dev/)
 
 > "We see much further, and reach much higher,<br>only because we stand upon the shoulders of giants"
+
+[`^ Top`](#toc)
+
+## 📖 [Resources](#toc)
+
+* [Jekyll Website](https://jekyllrb.com/)
+* [GitHub Pages Dependencies](https://pages.github.com/versions/) (list of plugins supported by gh-pages)
+* [Ragdata's Favourite Jekyll Resources](https://gist.github.com/Ragdata/43dc893f563eac97b05ff8132ca484d7)
 
 [`^ Top`](#toc)
 
@@ -197,14 +208,6 @@ Permission is hereby granted, free of charge, to any person obtaining a copy of 
 The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-
-[`^ Top`](#toc)
-
-## 📖 [Resources](#toc)
-
-* [Jekyll Website](https://jekyllrb.com/)
-* [GitHub Pages Dependencies](https://pages.github.com/versions/) (list of plugins supported by gh-pages)
-* [Ragdata's Favourite Jekyll Resources](https://gist.github.com/Ragdata/43dc893f563eac97b05ff8132ca484d7)
 
 [`^ Top`](#toc)
 
