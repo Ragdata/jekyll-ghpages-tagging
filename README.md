@@ -36,7 +36,9 @@ If you like this repository, please give it a ⭐ (it really does help)
 
 If you're using GitHub Pages in SAFE mode, then you already know that most plugins are disabled and only a small number of plugins are whitelisted.  One of the plugins you **can't** use is [jekyll-tagging](https://github.com/pattex/jekyll-tagging) - which makes managing tags for your blog articles difficult.
 
-This project provides a fully-automated solution for Jekyll tag management that is 100% compatible with GitHub Pages by doing the work through GitHub Actions instead of a plugin. 
+This project provides a fully-automated solution for Jekyll tag management that is 100% compatible with GitHub Pages by doing the work through GitHub Actions instead of a Jekyll plugin.  Like most of my projects, this one was inspired by my own need for the solution.
+
+If you've got an idea you'd like to see implemented, submit a [feature request](https://github.com/Ragdata/jekyll-ghpages-tagging/issues/new?assignees=Ragdata&labels=request%2CNEW&projects=&template=feature-request.yml&title=%5BREQUEST%5D%3A+%3Ctitle%3E) and it will be considered for inclusion in an upcoming release.
 
 ## 📂 [Usage](#toc)
 
@@ -70,8 +72,41 @@ prune_tags:
 ### Example Workflow
 
 ```yaml
+name: Jekyll GH-Pages Tagging Workflow
 
+on:
+    # Trigger when Markdown files pushed to docs/_posts on the master branch 
+    push:
+        branches:
+            - master
+        paths:
+            - 'docs/_posts/*.md'
+    # Allows this workflow to be triggered manually
+    workflow_dispatch:
+
+jobs:
+    generate_tags:
+        runs-on: ubuntu-latest
+        permissions:
+            contents: write
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v4
+            - name: Generate Tags
+              uses: ragdata/jekyll-ghpages-tagging@master
+              with:
+                posts_dir: "docs/_posts"
+                tags_dir: "docs/_tags"
+                tags_layout: "tags"
+                feeds_dir: "docs/_feeds"
+                feeds_layout: "feed"
+              env:
+                GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 ```
+
+### Reusable Workflow
+
+You can find a copy of a [reusable workflow](https://github.com/Ragdata/reusable-workflows/blob/master/.github/workflows/jekyll-ghpages-tagging.yml) and [caller](https://github.com/Ragdata/reusable-workflows/blob/master/callers/call.jekyll-ghpages-tagging.yml) using this GitHub Action in my [**Reusable Workflows**](https://github.com/ragdata/reusable-workflows) repository.
 
 [`^ Top`](#toc)
 
