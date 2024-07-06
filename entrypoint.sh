@@ -159,8 +159,8 @@ fi
 if (("$tagsAdded" > 0)) || (("$feedsAdded" > 0)) || (("$tagsRemoved" > 0)); then
 	echo "::debug::Committing Added Files to Git"
 	git config --global --add safe.directory "$GITHUB_WORKSPACE"
-	git config --global user.email "$GITHUB_ACTOR@users.noreply.github.com"
-	git config --global user.name "$GITHUB_ACTOR"
+	git config user.email "$GITHUB_ACTOR_ID+$GITHUB_ACTOR@users.noreply.github.com"
+	git config user.name "$GITHUB_ACTOR"
 	git add -A
 	git commit -m "tags &/or feeds modified\n\nAutomated using $GITHUB_ACTION in $GITHUB_WORKFLOW"
 	git push
