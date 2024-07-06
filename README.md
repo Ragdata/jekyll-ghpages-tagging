@@ -20,6 +20,10 @@
 ![Last Commit](https://img.shields.io/github/last-commit/ragdata/jekyll-ghpages-tagging/master?logo=github&style=for-the-badge)
 ![MIT](https://img.shields.io/badge/License-MIT-gold?style=for-the-badge)
 
+#### _Elapsed Project Time_
+
+[![wakatime](https://wakatime.com/badge/user/7e04d9d4-3a44-495e-b622-69fdbafd036c/project/2c53b1bc-c305-48bf-b332-445274a3f6e6.svg?style=for-the-badge)](https://wakatime.com/badge/user/7e04d9d4-3a44-495e-b622-69fdbafd036c/project/2c53b1bc-c305-48bf-b332-445274a3f6e6)
+
 </div>
 
 <h3 align="center">
