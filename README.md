@@ -1,5 +1,7 @@
 <h1 align="center">
 
+[![Linter](https://github.com/Ragdata/jekyll-ghpages-tagging/actions/workflows/super-linter.yml/badge.svg?style=for-the-badge)](https://github.com/Ragdata/jekyll-ghpages-tagging/actions/workflows/super-linter.yml)
+
 <img height="256" src="https://raw.githubusercontent.com/Ragdata/media/master/logo/Ragdata-64.svg" alt="Jekyll GH-Pages Tagging Script" />
 
 [Jekyll GH-Pages Tagging<br />GitHub Action v0.1.0](https://github.com/ragdata/jekyll-ghpages-tagging/releases/tag/v0.1.0)
@@ -177,9 +179,6 @@ If you discover any issue regarding the security of this project, please disclos
 
 ## ©️ [Copyright & Attributions](#toc)
 
-**Jekyll GitHub-Pages Tagging Action**<br />
-Copyright &copy; 2024 Redeyed Technologies
-
 This project incorporates ideas and / or code crafted by the following talented individuals:
 
 * [**Article: How do I tag posts in Jekyll? Jekyll tagging made simple**](https://www.untangled.dev/2020/06/02/tag-management-jekyll/)<br />
@@ -224,6 +223,7 @@ If you like this repository, please give it a ⭐ (it really does help)
 <a href="https://visitorbadge.io/status?path=https%3A%2F%2Fgithub.com%2Fragdata%2Fjekyll-ghpages-tagging" target="_blank"><img alt="Visitors" src="https://api.visitorbadge.io/api/combined?path=https%3A%2F%2Fgithub.com%2Fragdata%2Fjekyll-ghpages-tagging&countColor=%23d20000" /></a>
 <a href="https://github.com/ragdata" target="_blank"><img alt="Ragdata" src="https://img.shields.io/badge/-Made_With_☕_By_Ragdata-D20000?style=for-the-badge" /></a>
 
+Copyright &copy; 2024 Redeyed Technologies
 </div>
 
 [advisory]: https://github.com/ragdata/jekyll-ghpages-tagging/security/advisories/new
