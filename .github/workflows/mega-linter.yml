@@ -31,4 +31,7 @@ jobs:
             pull-requests: write
         uses: ragdata/reusable-workflows/.github/workflows/mega-linter.yml@master
         with:
-            megalinter_config: https://raw.githubusercontent.com/ragdata/reusable-workflows/master/.mega-linter.yml
+            megalinter_config: https://raw.githubusercontent.com/Ragdata/reusable-workflows/master/.mega-linter.yml
+            linter_rules_path: https://raw.githubusercontent.com/Ragdata/reusable-workflows/master/.github/linters
+        secrets:
+            token: ${{ secrets.GITHUB_TOKEN }}
