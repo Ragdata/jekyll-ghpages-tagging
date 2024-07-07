@@ -20,5 +20,3 @@ jobs:
         # with:
         secrets:
             token: ${{ secrets.github_token }}
-            ssl_cert: ${{ secrets.ssl_cert }}
-            ssh_key: ${{ secrets.ssh_key }}
