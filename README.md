@@ -1,10 +1,10 @@
-<h1 align="center">
+[![MegaLinter](https://github.com/ragdata/jekyll-ghpages-tagging/workflows/MegaLinter/badge.svg?branch=master)](https://github.com/ragdata/jekyll-ghpages-tagging/actions?query=workflow%3AMegaLinter+branch%3Amain)
 
-[![Linter](https://github.com/Ragdata/jekyll-ghpages-tagging/actions/workflows/super-linter.yml/badge.svg?style=for-the-badge)](https://github.com/Ragdata/jekyll-ghpages-tagging/actions/workflows/super-linter.yml)
+<h1 align="center">
 
 <img height="256" src="https://raw.githubusercontent.com/Ragdata/media/master/logo/Ragdata-64.svg" alt="Jekyll GH-Pages Tagging Script" />
 
-[Jekyll GH-Pages Tagging<br />GitHub Action v0.1.0](https://github.com/ragdata/jekyll-ghpages-tagging/releases/tag/v0.1.0)
+[Jekyll GH-Pages Tagging<br />GitHub Action v0.1.0](https://github.com/ragdata/jekyll-ghpages-tagging)
 
 </h1>
 
