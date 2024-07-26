@@ -16,7 +16,7 @@
 <br />
 <div align="center">
 
-<a name="toc"></a>
+<a name="top"></a>
 
 ![GitHub issues](https://img.shields.io/github/issues-raw/ragdata/jekyll-ghpages-tagging?style=for-the-badge&logo=github)
 ![Last Commit](https://img.shields.io/github/last-commit/ragdata/jekyll-ghpages-tagging/master?logo=github&style=for-the-badge)
@@ -36,7 +36,7 @@ If you like this repository, please give it a ⭐ (it really does help)
 
 </h3>
 
-## ⭐ [Project Overview](#toc)
+## ⭐ [Project Overview](#top)
 
 > An article tagging solution for Jekyll that is 100% compatible with GH-Pages
 
@@ -46,7 +46,7 @@ This project provides a fully-automated solution for Jekyll tag management that 
 
 > If you've got an idea you'd like to see implemented, submit a [feature request](https://github.com/Ragdata/jekyll-ghpages-tagging/issues/new?assignees=Ragdata&labels=request%2CNEW&projects=&template=feature-request.yml&title=%5BREQUEST%5D%3A+%3Ctitle%3E) and it will be considered for inclusion in an upcoming release.
 
-## ❓ [What Does It Do?](#toc)
+## ❓ [What Does It Do?](#top)
 
 1. Scans the `posts_dir` for a list of blog articles
 2. Extracts a list of tags used in those articles
@@ -59,7 +59,7 @@ This project provides a fully-automated solution for Jekyll tag management that 
 
 `Feed Files` - allow you distribute your articles in ATOM (RSS) format and curate your feeds according to their associated tag(s).
 
-## 📂 [Usage](#toc)
+## 📂 [Usage](#top)
 
 ### Inputs
 ```yaml
@@ -88,7 +88,7 @@ prune_tags:
     required: false
     default: "true"
 ```
-### Example Workflow
+### Example Workflows
 
 ```yaml
 name: Jekyll GH-Pages Tagging Workflow
@@ -123,13 +123,16 @@ jobs:
                 GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 ```
 
-### Reusable Workflow
+<center>
 
-You can find a copy of a [reusable workflow](https://github.com/Ragdata/reusable-workflows/blob/master/.github/workflows/jekyll-ghpages-tagging.yml) and [caller](https://github.com/Ragdata/reusable-workflows/blob/master/callers/call.jekyll-ghpages-tagging.yml) using this GitHub Action in my [**Reusable Workflows**](https://github.com/ragdata/reusable-workflows) repository.
+You can find a copies of a [standalone workflow](https://github.com/Ragdata/workflow-templates/blob/master/templates/jekyll-ghpages-tagging.flow.yml), [reusable workflow](https://github.com/Ragdata/workflow-templates/blob/master/templates/jekyll-ghpages-tagging.reuse.yml) and [caller](https://github.com/Ragdata/workflow-templates/blob/master/templates/jekyll-ghpages-tagging.call.yml) using this GitHub Action in my [**Workflow Templates**](https://github.com/Ragdata/workflow-templates) repository.
 
-[`^ Top`](#toc)
+</center>
 
-## ❤️ [Project Supporters](#toc)
+
+[`^ Top`](#top)
+
+## ❤️ [Project Supporters](#top)
 
 <div align="center">
 
@@ -141,9 +144,9 @@ You can find a copy of a [reusable workflow](https://github.com/Ragdata/reusable
 
 </div>
 
-[`^ Top`](#toc)
+[`^ Top`](#top)
 
-## 🚧 [Author / Maintainer](#toc)
+## 🚧 [Author / Maintainer](#top)
 
 <div align="center">
 
@@ -167,17 +170,17 @@ You can find a copy of a [reusable workflow](https://github.com/Ragdata/reusable
 
 </div>
 
-[`^ Top`](#toc)
+[`^ Top`](#top)
 
-## 🔐 [Security](#toc)
+## 🔐 [Security](#top)
 
 While I always good security practices, 100% security can never be guaranteed in any software package.  The `Jekyll GH-Pages Tagging Action` is provided AS IS, and without warranty.  You can find more details in the [LICENSE](LICENSE) file included with this repository.
 
 If you discover any issue regarding the security of this project, please disclose that information responsibly by sending a [security advisory][advisory].  **PLEASE DO NOT CREATE AN ISSUE OR DISCUSSION TOPIC.**  You can read more about this project's security policies [HERE][security]
 
-[`^ Top`](#toc)
+[`^ Top`](#top)
 
-## ©️ [Copyright & Attributions](#toc)
+## ©️ [Copyright & Attributions](#top)
 
 This project incorporates ideas and / or code crafted by the following talented individuals:
 
@@ -186,17 +189,17 @@ This project incorporates ideas and / or code crafted by the following talented 
 
 > "We see much further, and reach much higher,<br>only because we stand upon the shoulders of giants"
 
-[`^ Top`](#toc)
+[`^ Top`](#top)
 
-## 📖 [Resources](#toc)
+## 📖 [Resources](#top)
 
 * [Jekyll Website](https://jekyllrb.com/)
 * [GitHub Pages Dependencies](https://pages.github.com/versions/) (list of plugins supported by gh-pages)
 * [Ragdata's Favourite Jekyll Resources](https://gist.github.com/Ragdata/43dc893f563eac97b05ff8132ca484d7)
 
-[`^ Top`](#toc)
+[`^ Top`](#top)
 
-## ⚖️ [License](#toc)
+## ⚖️ [License](#top)
 
 ![MIT](https://img.shields.io/badge/License-MIT-gold)
 
@@ -208,7 +211,7 @@ The above copyright notice and this permission notice shall be included in all c
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-[`^ Top`](#toc)
+[`^ Top`](#top)
 
 <h3 align="center">
 
