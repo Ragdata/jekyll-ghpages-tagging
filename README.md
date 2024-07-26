@@ -1,4 +1,4 @@
-[![MegaLinter](https://github.com/ragdata/jekyll-ghpages-tagging/workflows/MegaLinter/badge.svg?branch=master)](https://github.com/ragdata/jekyll-ghpages-tagging/actions?query=workflow%3AMegaLinter+branch%3Amain)
+[![MegaLinter](https://github.com/Ragdata/jekyll-ghpages-tagging/actions/workflows/mega-linter.yml/badge.svg)](https://github.com/Ragdata/jekyll-ghpages-tagging/actions/workflows/mega-linter.yml)
 
 <h1 align="center">
 
