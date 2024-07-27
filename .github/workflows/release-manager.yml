@@ -10,7 +10,7 @@
 # License:      MIT License
 # Copyright:    Copyright © 2024 Redeyed Technologies
 ####################################################################
-name: Ragdata's Release Manager
+name: Release Manager
 
 on:
     # Allows for manual triggering via the Actions tab
