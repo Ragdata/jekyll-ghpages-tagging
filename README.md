@@ -1,5 +1,6 @@
 <div align="center">
 
+[![Pre-Release](https://img.shields.io/badge/Status-Pre--Release-d20000?labelColor=31383f)](https://github.com/Ragdata/Ragdata/blob/master/docs/badges.md)
 [![MegaLinter](https://github.com/Ragdata/jekyll-ghpages-tagging/actions/workflows/mega-linter.yml/badge.svg)](https://github.com/Ragdata/jekyll-ghpages-tagging/actions/workflows/mega-linter.yml)
 
 </div>
@@ -8,7 +9,7 @@
 
 <img height="256" src="https://raw.githubusercontent.com/Ragdata/media/master/logo/Ragdata-64.svg" alt="Jekyll GH-Pages Tagging Script" />
 
-[Jekyll GH-Pages Tagging<br />GitHub Action v0.1.0](https://github.com/ragdata/jekyll-ghpages-tagging)
+[Jekyll GH-Pages Tagging<br />GitHub Action](https://github.com/ragdata/jekyll-ghpages-tagging)
 
 </h1>
 
