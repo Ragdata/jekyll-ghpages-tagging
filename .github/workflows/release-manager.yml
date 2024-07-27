@@ -35,4 +35,4 @@ jobs:
             version: ${{ inputs.version }}
             type: ${{ inputs.type }}
         secrets:
-            token: ${{ secrets.PAT || secrets.GITHUB_TOKEN }}
+            token: ${{ secrets.GITHUB_TOKEN }}
