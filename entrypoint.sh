@@ -9,7 +9,7 @@
 # Author:       Ragdata
 # Date:         04/07/2024
 # License:      MIT License
-# Copyright:    Copyright © 2024 Darren (Ragdata) Poulton
+# Copyright:    Copyright © 2024 Redeyed Technologies
 ####################################################################
 
 set -eEuo pipefail
