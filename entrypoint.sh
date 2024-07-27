@@ -183,7 +183,7 @@ summaryTable="
 "
 
 cat << EOF >> "$GITHUB_STEP_SUMMARY"
-### :gear: jekyll-ghpages-tagging Action Summary
+### :bookmark: jekyll-ghpages-tagging Action Summary
 $summaryTable
 EOF
 
