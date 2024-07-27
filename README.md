@@ -1,8 +1,8 @@
-<center>
+<div align="center">
 
 [![MegaLinter](https://github.com/Ragdata/jekyll-ghpages-tagging/actions/workflows/mega-linter.yml/badge.svg)](https://github.com/Ragdata/jekyll-ghpages-tagging/actions/workflows/mega-linter.yml)
 
-</center>
+</div>
 
 <h1 align="center">
 
